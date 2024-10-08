@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+int main() {
+	int a;
+	scanf("%d", &a);
+
+    if (a % 9 == 0) {
+		printf("multiple");
+	}
+	else
+		printf("not-multiple");
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int ly;
+	scanf("%d", &ly);
+
+	if (ly % 4 == 0) {
+		if (ly % 100 == 0) {
+			if (ly % 400 == 0) {
+				printf("leap\n");
+			}
+			else
+				printf("not-leap");
+		}
+		else
+			printf("leap");
+	}
+	else
+		printf("not-leap");
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a >= b) {
+	    if (a >= c) {
+		    printf("%d", a);
+	}
+	    else
+		   printf("%d", c);
+	}
+	else if (b >= c) {
+		printf("%d", b);
+	}
+	else 
+		printf("%d", c);
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	float inv, sale, diff;
+	scanf("%f%f", &inv, &sale);
+	if (inv > sale) {
+		diff = ((inv - sale) / inv) * 100;
+		printf("loss: %.2f%%", diff);
+	}
+	else if (sale > inv) {
+		diff = ((sale - inv) / inv) * 100;
+		printf("profit: %.2f%%", diff);
+	}
+	else 
+		printf("no-profit, no-loss");
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int a, b;
+	scanf("%d%d", &a, &b);
+
+	if (a > b) {
+		printf("%d", a);
+	}
+	else if (b > a) {
+		printf("%d", b);
+	}
+	else if (a == b) {
+		printf("%d", a);
+	}
+}
