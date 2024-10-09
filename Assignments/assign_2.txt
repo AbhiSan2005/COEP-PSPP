@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	float a, b, c, d, d_, r1=1.0, r2=2.0;
+	scanf("%f%f%f", &a, &b, &c);
+	d = (b*b) - (4*a*c);
+	d_ = sqrt(d);
+	
+	if (a != 0) {
+		if (d > 0) {
+			r1 = (-b - d_) / (2*a);
+			r2 = (-b + d_) / (2*a);
+			printf("%f %f", r2, r1);
+		}
+		else if (d == 0) {
+			r1 = (-b) / (2*a);
+			r2 = (-b) / (2*a);
+			printf("%f %f", r2, r1);
+		}
+		else {
+			printf("can't find roots");
+		}
+	}
+	else {
+		printf("can't find roots");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int ip;
+	float dr, dp, fp;
+	scanf("%d%f", &ip, &dr);
+	dp = (ip * dr) / 100;
+	fp = ip - dp;
+	printf("%.2f", fp);
+	return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d%d", &a, &b);
+	c  = a + b;
+	printf("%d", c);
+	return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int a, b, c;
+	float x;
+	scanf("%d%d%d", &a, &b, &c);
+	x  = ((float)a + b + c) / 3;
+	printf("%.2f", x);
+	return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int c1, g1, c2, g2, c3, g3, c4, g4, c5, g5;
+	float tc, wg, sgpa;
+	scanf("%d%d%d%d%d%d%d%d%d%d", &c1, &g1, &c2, &g2, &c3, &g3, &c4, &g4, &c5, &g5);
+	wg = (float)c1 * g1 + c2 * g2 + c3 * g3 + c4 * g4 + c5 * g5;
+	tc = (float)c1 + c2 + c3 + c4 + c5;
+	sgpa = wg / tc;
+	printf("%.6f", sgpa);
+	return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	float p, r, y, fa, si;
+	scanf("%f%f%f", &p, &r, &y);
+	si  = (p * r * y) / 100;
+	fa = p + si;
+	printf("%f", fa);
+	return 0;
+}
+
+
