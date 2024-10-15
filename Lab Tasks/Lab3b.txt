@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+	int a, b, c, d;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a >=b) {
+		if (a >= c) {
+			if (b >=c) {
+				d = a - c;
+				printf("%d", d);
+			}
+			else {
+				d = a - b;
+				printf("%d", d);
+			}
+		}
+		else {
+			d = c - b;
+			printf("%d", d);
+		}
+	}
+	else if (b >= c) {
+		if (c >= a) {
+			d = b - a;
+			printf("%d", d);
+		}
+		else {
+			d = b - c;
+			printf("%d", d);
+		}
+	}
+	else {
+		d = c - a;
+		printf("%d", d);
+	}
+	return 0;
+}
+
+
