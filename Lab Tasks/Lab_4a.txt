@@ -1,0 +1,126 @@
+1)
+#include <stdio.h>
+
+int main() {
+	int a, b;
+	char c;
+
+	scanf("%d%d %c", &a, &b, &c);
+
+	switch(c) {
+		case '+':
+			printf("%d\n", a + b);
+			break;
+		case '-':
+			printf("%d\n", a - b);
+			break;
+		case '*':
+			printf("%d\n", a * b);
+			break;
+		case '/':
+			printf("%d\n", a / b);
+			break;
+		default:
+			printf("invalid input\n");
+			break;
+	}
+	return 0;
+}
+
+4)
+#include <stdio.h>
+
+int main() {
+	int a, b;
+	scanf("%d", &a);
+	b = a / 100;
+	
+	switch(b) {
+		case 0:
+			printf("<100\n");
+			break;
+		case 1:
+			printf(">=100 & <200\n");
+			break;
+		case 2:
+                        printf(">=200 & <300\n");
+                        break;
+		case 3:
+                        printf(">=300 & <400\n");
+                        break;
+		case 4:
+                        printf(">=400 & <500\n");
+                        break;
+		case 5:
+                        printf(">=500 & <600\n");
+                        break;
+		case 6:
+                        printf(">=600 & <700\n");
+                        break;
+		case 7:
+                        printf(">=700 & <800\n");
+                        break;
+		case 8:
+                        printf(">=800 & <900\n");
+                        break;
+		case 9:
+                        printf(">=900 & <1000\n");
+                        break;
+		default:
+			printf("out of range\n");
+			break;
+	}
+	return 0;
+}
+
+5)
+#include <stdio.h>
+
+int main() {
+	int ctype = 0;
+	char a;
+	scanf("%c", &a);
+	
+	if((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) {
+		ctype = 1;
+	}
+	else if(a >= '0' && a <= '9') {
+		ctype = 2;
+	}
+	
+	switch(ctype) {
+		case 1:
+			printf("alphabet\n");
+			break;
+		case 2:
+			printf("digit\n");
+			break;
+		default:
+			printf("special character\n");
+			break;
+	}	
+	return 0;
+}
+
+6)
+#include <stdio.h>
+
+int main() {
+	char a;
+	scanf("%c", &a);
+	
+	int ctype = ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) ? 1 : (a >= '0' && a <= '9') ? 2 : 3;
+	
+	switch(ctype) {
+		case 1:
+			printf("alphabet\n");
+			break;
+		case 2:
+			printf("digit\n");
+			break;
+		default:
+			printf("special character\n");
+			break;
+	}	
+	return 0;
+}
