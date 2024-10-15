@@ -1,0 +1,367 @@
+#include <stdio.h>
+
+int main() {
+	int a;
+	scanf("%d", &a);
+	if(a % 9 == 0) {
+		printf("multiple\n");
+	}
+	else {
+		printf("not-multiple\n");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	char a;
+	scanf("%c", &a);
+	if(a >= 'a' && a <= 'z') {
+		printf("small\n");
+	}
+	else if(a >= 'A' && a <= 'Z') {
+		printf("capital\n");
+	}
+	else if(a >= '0' && a <= '9') {
+		printf("digit\n");
+	}
+	else {
+		printf("other\n");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int month, date;
+    	int dayOfYear = 0;
+	int maxDate;
+
+	scanf("%d%d", &month, &date);
+
+	if (month > 1) dayOfYear = 31;
+    	if (month > 2) dayOfYear = 28 + 31;
+    	if (month > 3) dayOfYear = 31 + 28 + 31;
+    	if (month > 4) dayOfYear = 30 + 31 + 28 + 31;
+    	if (month > 5) dayOfYear = 31 + 30 + 31 + 28 + 31;
+    	if (month > 6) dayOfYear = 30 + 31 + 30 + 31 + 28 + 31;
+    	if (month > 7) dayOfYear = 31 + 30 + 31 + 30 + 31 + 28 + 31;
+    	if (month > 8) dayOfYear = 31 + 31 + 30 + 31 + 30 + 31 + 28 + 31;
+    	if (month > 9) dayOfYear = 30 + 31 + 31 + 30 + 31 + 30 + 31 + 28 + 31;
+    	if (month > 10) dayOfYear = 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 28 + 31;
+    	if (month > 11) dayOfYear = 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 28 + 31;
+
+    	if (month == 1) maxDate = 31;
+    	else if (month == 2) maxDate = 28;
+    	else if (month == 3) maxDate = 31;
+    	else if (month == 4) maxDate = 30;
+    	else if (month == 5) maxDate = 31;
+    	else if (month == 6) maxDate = 30;
+    	else if (month == 7) maxDate = 31;
+    	else if (month == 8) maxDate = 31;
+    	else if (month == 9) maxDate = 30;
+    	else if (month == 10) maxDate = 31;
+    	else if (month == 11) maxDate = 30;
+    	else if (month == 12) maxDate = 31;
+
+	if (month < 1 || month > 12 || date < 1) {
+                printf("0\n");
+	}
+	else if (date > maxDate) {
+        	printf("0\n");
+	}
+	else {
+	dayOfYear += date;
+	printf("%d\n", dayOfYear);
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int n100, n50, n20, n5, n1, amt, sum;
+	scanf("%d", &amt);
+
+	if(amt >= 100) {
+		n100 = amt / 100;
+		printf("100 %d ", n100);
+		amt %= 100;
+	}
+	else {
+		n100 = 0;
+	}
+	if(amt >= 50) {
+                n50 = amt / 50;
+                printf("50 %d ", n50);
+                amt %= 50;
+        }
+        else {
+                n50 = 0;
+        }
+	if(amt >= 20) {
+                n20 = amt / 20;
+                printf("20 %d ", n20);
+                amt %= 20;
+        }
+        else {
+                n20 = 0;
+        }
+	if(amt >= 5) {
+                n5 = amt / 5;
+                printf("5 %d ", n5);
+                amt %= 5;
+        }
+        else {
+                n5 = 0;
+        }
+	if(amt >= 1) {
+                n1 = amt / 1;
+                printf("1 %d ", n1);
+                amt %= 1;
+        }
+        else {
+                n1 = 0;
+        }
+	sum = n100 + n50 + n20 + n5 + n1;
+	printf("%d", sum);
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    char ch;
+    scanf("%c", &ch);
+
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+        printf("vowel");
+    }
+    else {
+        printf("not vowel");
+    }
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int dayOfYear;
+
+    scanf("%d", &dayOfYear);
+
+    if (dayOfYear < 1 || dayOfYear > 365) {
+        printf("invalid");
+        return 0;
+    }
+
+    int month = 0;
+    int day = 0;
+
+    if (dayOfYear <= 31) {
+        month = 1;
+        day = dayOfYear;
+    } else if (dayOfYear <= 59) {
+        month = 2;
+        day = dayOfYear - 31;
+    } else if (dayOfYear <= 90) {
+        month = 3;
+        day = dayOfYear - 59;
+    } else if (dayOfYear <= 120) {
+        month = 4;
+        day = dayOfYear - 90;
+    } else if (dayOfYear <= 151) {
+        month = 5;
+        day = dayOfYear - 120;
+    } else if (dayOfYear <= 181) {
+        month = 6;
+        day = dayOfYear - 151;
+    } else if (dayOfYear <= 212) {
+        month = 7;
+        day = dayOfYear - 181;
+    } else if (dayOfYear <= 243) {
+        month = 8;
+        day = dayOfYear - 212;
+    } else if (dayOfYear <= 273) {
+        month = 9;
+        day = dayOfYear - 243;
+    } else if (dayOfYear <= 304) {
+        month = 10;
+        day = dayOfYear - 273;
+    } else if (dayOfYear <= 334) {
+        month = 11;
+        day = dayOfYear - 304;
+    } else {
+        month = 12;
+        day = dayOfYear - 334;
+    }
+
+    printf("%d %d\n", day, month);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int a, b, c, d, max, min, n1, n2;
+	scanf("%d%d%d%d", &a, &b, &c, &d);
+
+	max = a;
+    	if (b > max) {
+		max = b;
+	}
+	if (c > max) {
+		max = c;
+	}
+	if (d > max) {
+		max = d;
+	}
+	min = a;
+    	if (b < min) {
+		min = b;
+	}
+	if (c < min) {
+		min = c;
+	}
+	if (d < min) {
+		min = d;
+	}
+
+	if (a != max && a != min) {
+        n1 = a;
+    	} 
+	else if (b != max && b != min) {
+        n1 = b;
+    	} 
+	else if (c != max && c != min) {
+        n1 = c;
+    	} 
+	else {
+        n1 = d;
+    	}
+	
+	if (a != max && a != min && a != n1) {
+        n2 = a;
+        } 
+        else if (b != max && b != min && b != n1) {
+        n2 = b;
+        } 
+        else if (c != max && c != min && c != n1 ) {
+        n2 = c;
+        } 
+        else {
+        n2 = d;
+        }
+	printf("%d %d", n1, n2);
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+	int a, i;
+	char b;
+	scanf("%d %c", &a, &b);
+
+	if(b == 'f') {
+		i = a * 12;
+		printf("%d\n", i);
+	}
+	else if(b == 'y') {
+		i = a * 36;
+		printf("%d\n", i);
+	}
+	else if(b == 'm') {
+		i = a * 63360;
+		printf("%d\n", i);
+	}
+	else {
+		printf("error\n");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    char shape, oper;
+    float b, h, s1, s2, s3, r;
+    int result = scanf(" %c %c", &shape, &oper);
+    
+    if (result != 2 || (shape != 't' && shape != 'r' && shape != 's' && shape != 'c') || (oper != 'a' && oper != 'p')) {
+        printf("error\n");
+        return 0;
+    }
+    switch (shape) {
+        case 't':
+            if (oper == 'a') {
+                result = scanf("%f %f", &b, &h);
+                if (result == 2)
+                    printf("%.2f\n", (b * h) / 2);
+                else
+                    printf("error\n");
+            } else if (oper == 'p') {
+                result = scanf("%f %f %f", &s1, &s2, &s3);
+                if (result == 3)
+                    printf("%.2f\n", s1 + s2 + s3);
+                else
+                    printf("error\n");
+            } else {
+                printf("error\n");
+            }
+            break;
+
+        case 'r':
+            result = scanf("%f %f", &b, &h);
+            if (result == 2) {
+                if (oper == 'a') {
+                    printf("%.2f\n", b * h);
+                } else if (oper == 'p') {
+                    printf("%.2f\n", 2 * (b + h));
+                } else {
+                    printf("error\n");
+                }
+            } else {
+                printf("error\n");
+            }
+            break;
+
+        case 's':
+            result = scanf("%f", &b);
+            if (result == 1) {
+                if (oper == 'a') {
+                    printf("%.2f\n", b * b);
+                } else if (oper == 'p') {
+                    printf("%.2f\n", 4 * b); 
+                } else {
+                    printf("error\n");
+                }
+            } else {
+                printf("error\n");
+            }
+            break;
+
+        case 'c':
+            result = scanf("%f", &r);
+            if (result == 1) {
+                if (oper == 'a') {
+                    printf("%.2f\n", 3.14 * r * r); 
+                } else if (oper == 'p') {
+                    printf("%.2f\n", 2 * 3.14 * r);
+                } else {
+                    printf("error\n");
+                }
+            } else {
+                printf("error\n");
+            }
+            break;
+        default:
+            printf("error\n");
+            break;
+    }
+    return 0;
+}
