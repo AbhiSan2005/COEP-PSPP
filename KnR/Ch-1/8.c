@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-  int ch, bl=0, nl=1, tab=0;
+  int ch, bl=0, nl=0, tab=0;
   while ((ch = getchar()) != EOF) {
     if (ch == ' ') {
       ++bl;
@@ -18,6 +18,6 @@ int main() {
   }
   printf("\nblanks : %d\n", bl);
   printf("tabs: %d\n", tab);
-  printf("lines : %d\n", nl);
+  printf("newlines : %d\n", nl);
   return 0;
 }
