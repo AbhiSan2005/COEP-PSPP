@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+long fact(int num) {
+        long prod = 0;
+        if (num == 0) {
+        	prod = 1;
+        } 
+        prod = num;
+        while (num > 1) {
+                prod = prod * (num - 1);
+                --num;
+        }
+        return prod;
+}
+
+int main() {
+        int a;
+        scanf("%d", &a);
+        if (a >= 0) {
+                printf("%ld\n", fact(a));
+        }
+        else {
+                printf("invalid input\n");
+        }
+        return 0;
+}
+
+#include <stdio.h>
+
+long fact(int num) {
+        long prod = 0;
+        if (num == 0) {
+        	prod = 1;
+        } 
+        prod = num;
+        while (num > 1) {
+                prod = prod * (num - 1);
+                --num;
+        }
+        return prod;
+}
+
+int main() {
+        int n, r;
+        scanf("%d%d", &n, &r);
+        if (n > 0 && r >= 0 && (n-r) >= 0) {
+                printf("%ld\n", fact(n) / (fact(r) * fact(n-r)));
+        }
+        else {
+                printf("invalid input\n");
+        }
+        return 0;
+}
+
+#include <stdio.h>
+
+int max(int a, int b, int c) {
+	int maximum;
+	maximum = (a >= b) ? ((c >= a) ? c : a) : ((c >= b) ? c : b);
+	return maximum;
+}
+
+int main() {
+	int a, b, c, maximum;
+	scanf("%d%d%d", &a, &b, &c);
+
+	maximum = (a >= b) ? ((c >= a) ? c : a) : ((c >= b) ? c : b);
+	printf("%d\n", maximum);
+	printf("%d\n", max(a,b,c));
+	if (maximum == max(a,b,c)) {
+		printf("correct\n");
+	}
+	else {
+		printf("wrong\n");
+	}
+	return 0;
+}
