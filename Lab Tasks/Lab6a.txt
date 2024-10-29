@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int max(int num1, int num2) {
+	int m;
+	m = num1;
+	if (num2 >= m) {
+		m = num2;
+	}
+	return m;
+}
+
+int main() {
+	int x, a, b, maximum;
+	while ((x = scanf("%d%d", &a, &b)) == 2) {
+			maximum = max(a,b);
+			printf("%d\n", maximum);
+	}
+	return 0;
+}
