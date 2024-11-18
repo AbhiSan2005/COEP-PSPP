@@ -1,0 +1,64 @@
+1)
+#include <stdio.h>
+#include <math.h>
+
+double sqroot(double n)
+{
+        double g1 = n / 2, g2 = 0;
+
+        while(fabs(g1 - g2) > 0.000001) {
+                g2 = (g1 + (n / g1)) / 2;
+                g1 = (g1 + g2) / 2;
+        }
+        return g2;
+}
+
+int main(void)
+{
+        double a;
+
+        scanf("%lf", &a);
+        printf("%lf", sqroot(a));
+        return 0;
+}
+
+2)
+#include <stdio.h>
+
+int gcd(int a, int b)
+{
+        int rem = a > b ? (a % b) : (b % a);
+        int gcd;
+
+        if (a == b) {
+                gcd = a;
+        } else if (a > b) {
+                if (a % b == 0)
+                        gcd = b;
+                while (rem) {
+                        a = b;
+                        b = rem;
+                        rem = a % b;
+                }
+                gcd = b;
+        } else {
+                if (b % a == 0)
+                        return a;
+                while (rem) {
+                        b = a;
+                        a = rem;
+                        rem = b % a;
+                }
+                gcd = a;
+        }
+        return gcd;
+}
+
+int main(void)
+{
+        int a, b;
+
+        scanf("%d%d", &a, &b);
+        printf("%d\n", gcd(a, b));
+        return 0;
+}
