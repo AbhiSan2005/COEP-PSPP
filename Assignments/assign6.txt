@@ -1,0 +1,79 @@
+1)
+int removedupl_k(int a[], int len, int k) {
+    if (len == 0 || k < 1)
+            return len;
+    int j = 0, i = 0;
+    while (i < len) {
+        int count = 1;
+        while (i < len - 1 && a[i] == a[i + 1]) {
+            i++;
+            count++;
+        }
+        if (count >= k) {
+            a[j++] = a[i];
+        }
+        else {
+            for (int x = 0; x < count; x++) {
+                a[j++] = a[i];
+            }
+        }
+        i++;
+    }
+    return j;
+}
+
+2)
+int removedupl_k(int a[], int len, int k) {
+    if (len == 0 || k < 1)
+        return len;
+    int fa[128], i, j = 0;
+    for (i = 0; i < len; ++i)
+            fa[i] = 0;
+    for (i = 0; i < len; ++i)
+        fa[a[i]]++;
+    for (i = 0; i < len; ++i) {
+        if (fa[a[i]] >= k) {
+                a[j++] = a[i];
+                fa[a[i]] = 0;
+        }
+        else if (fa[a[i]] > 0) {
+            a[j++] = a[i];
+        }
+    }
+    return j;
+}
+
+3)
+void reverse(int a[], int len) {
+        int r, t;
+        r = len / 2;
+        for (int i = 0; i < r; ++i) {
+                t = a[i];
+                a[i] = a[len - (i + 1)];
+                a[len - (i + 1)] = t;
+        }
+        return ;
+}
+
+4)
+void movetozero(int a[], int len) {
+        int t = a[0], mindex = 0;
+        for (int i = 1; i < len; ++i) {
+                if (a[i] < a[mindex])
+                        mindex = i;
+        }
+        a[0] = a[mindex];
+        a[mindex] = t;
+        return ;
+}
+
+5)
+int is_non_descending(int *a, int len) {
+        for (int i = 1; i < len; ++i) {
+                if (a[i] >= a[i - 1])
+                        continue;
+                else
+                        return 0;
+        }
+        return 1;
+}
