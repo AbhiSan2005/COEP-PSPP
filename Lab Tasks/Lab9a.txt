@@ -1,0 +1,47 @@
+1)
+#include <stdio.h>
+char *strstr(char *a, char *b) {
+        for (char *p = a; *p != '\0'; p++) {
+        char *p1 = p;
+        char *p2 = b;
+        for (; *p1 == *p2 && *p2 != '\0'; p1++, p2++);
+        if (*p2 == '\0')
+            return p;
+        }
+        return NULL;
+}
+
+int main(void)
+{
+        char *a = "abhijit is here";
+        char *b = "is";
+        char *p = strstr(a,b);
+        printf("%c", *p);
+        return 0;
+}
+
+2)
+#include <stdio.h>
+
+char *strmaxstr(char *a, char *b){
+        int max = 0, i = 0;
+        char *p;
+        while(*a){
+                while(*a == *b && *b)
+                        a++, b++, i++;
+                if(i > max) {
+                        max = i;
+                        p = a - i;
+                }
+                else{
+                        a -= i;
+                }
+                a++, b -= i, i = 0;
+        }
+        return p;
+}
+
+int main() {
+        printf("%s\n", strmaxstr("abcee abcdm bdefg", "abcdf"));
+        return 0;
+}
