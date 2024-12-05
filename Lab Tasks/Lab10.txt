@@ -1,0 +1,64 @@
+1)
+#include <stdio.h>
+#include <string.h>
+typedef struct  account {
+        int acctid;
+        char name[32];
+        double amount;
+}account;
+
+int main(void)
+{
+        account accounts[32];
+        int i = 0, j, small_id;
+        while (scanf("%d %s%lf", &accounts[i].acctid, accounts[i].name, &accounts[i].amount) != EOF && i < 32)
+                i++;
+        char *small = accounts[0].name;
+        for (j = 0; j <= i; j++) {
+                if (strcmp(accounts[j].name,small) <= 0) {
+                        small = accounts[j].name;
+                        small_id = j;
+                }
+        }
+        printf("%d %s %lf\n", accounts[small_id].acctid, accounts[small_id].name, accounts[small_id].amount);
+        return 0;
+}
+
+2)
+#include <stdio.h>
+
+typedef struct point {int x, y, z;} point;
+int main(void)
+{
+        int i = 0, n, k, len;
+        point a[32], t;
+        scanf("%d", &n);
+        while (i < n) {
+                scanf("%d%d%d", &a[i].x, &a[i].y, &a[i].z);
+                i++;
+        }
+        i--;
+        len = i;
+        for (int j = 0; j <= i; j++)
+                printf("%d %d %d\n", a[j].x, a[j].y, a[j].z);
+        scanf("%d", &k);
+        if (k >= 0 && k < i) {
+                scanf("%d%d%d", &a[i+1].x, &a[i+1].y, &a[i+1].z);
+                while (k <= i) {
+                        t = a[i];
+                        a[i] = a[i+1];
+                        a[i+1] = t;
+                        i--;
+                }
+        }
+        else if (k == i + 1) {
+                scanf("%d%d%d", &a[i+1].x, &a[i+1].y, &a[i+1].z);
+        }
+        else {
+                printf("wtf\n");
+                return -1;
+        }
+        for (int j = 0; j <= len+1; j++)
+                printf("%d %d %d\n", a[j].x, a[j].y, a[j].z);
+        return 0;
+}
