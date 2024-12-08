@@ -1,0 +1,118 @@
+1)
+int add(int a, int b) {
+        if (b > 0)
+                return add(a,b-1) + 1;
+        else if (b < 0)
+                return add(a,b+1) - 1;
+        else
+                return a;
+}
+
+2)
+int subtract(int a, int b) {
+        if (b > 0)
+                return subtract(a,b-1) - 1;
+        else if (b < 0)
+                return subtract(a,b+1) + 1;
+        else
+                return a;
+}
+
+3)
+#include <stdio.h>
+
+void tower_of_hanoi(int n, int disks, char origin, char spare, char final) {
+        if (n > 1) {
+                tower_of_hanoi(n-1,disks,origin,final,spare);
+                printf("disk_%d from %c to %c\n", disks - n + 1, origin, final);
+                tower_of_hanoi(n-1,disks,spare,origin,final);
+        }
+        else {
+                printf("disk_%d from %c to %c\n", disks - n + 1, origin, final);
+        }
+        return;
+}
+
+int main(void)
+{
+        int n;
+        scanf("%d", &n);
+        tower_of_hanoi(n, n,'o','s','f');
+        return 0;
+}
+
+4)
+int search_mis(student a[], int len, int mis) {
+        if (len <= 0)
+                return -1;
+        if (a->mis == mis)
+                return len;
+        else
+                return search_mis(a + 1, len - 1, mis);
+        return -1;
+}
+
+5)
+int search_mis(student a[], int len, int mis) {
+        if (len <= 0)
+                return -1;
+        if (a->mis > mis)
+		return -1;
+	if (a->mis == mis)
+                return len;
+        else
+                return search_mis(a + 1, len - 1, mis);
+        return -1;
+}
+
+6)
+#include <stdio.h>
+
+int gcd(int a, int b) {
+        if (a == 0)
+                return b;
+        if (b == 0)
+                return a;
+        if (a % b == 0) {
+                if (a < 0 && b < 0)
+                        return a > b ? a : b;
+                else
+                        return a > b ? b : a;
+        }
+        return gcd(b, a % b);
+}
+int main(void)
+{
+        int a, b;
+        scanf("%d%d", &a, &b);
+        printf("%d\n", gcd(a, b));
+        return 0;
+}
+
+7)
+int stringlen (char *a) {
+        if (*a != '\0')
+                return stringlen(a+1) + 1;
+        else
+                return 0;
+}
+
+8)
+int maxindex(int a[], int p[], int len) {
+        if (len == 1)
+                return a - p;
+        else
+                return (*a > a[maxindex(a+1,p,len-1)]) ? (a - p) : maxindex(a+1,p,len-1);
+        return -1;
+}
+
+9)
+double power(int x, int y) {
+        if (y == 0)
+                return 1;
+        else if (y > 0)
+                return x * power(x,y-1);
+        else
+                return (1.0/x) * power(x,y+1);
+        return -1;
+}
